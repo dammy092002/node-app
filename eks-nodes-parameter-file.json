@@ -1,0 +1,42 @@
+    [
+        {
+          "ParameterKey": "Environmentname",
+          "ParameterValue": "MyUdacityProject"
+        },
+        {
+          "ParameterKey": "KeyName",
+          "ParameterValue": "myoregonkey"
+        },
+        {
+          "ParameterKey": "ClusterName",
+          "ParameterValue": "Cluster-IGf5wKXTqNJi"
+        },
+        {
+          "ParameterKey": "NodeImageId",
+          "ParameterValue": "ami-02bbaade0665f867e"
+        },
+        {
+          "ParameterKey": "NodeInstanceType",
+          "ParameterValue": "t2.small"
+        },
+        {
+          "ParameterKey": "NodeAutoScalingGroupMinSize",
+          "ParameterValue": "1"
+        },
+        {
+          "ParameterKey": "NodeAutoScalingGroupMaxSize",
+          "ParameterValue": "3"
+        },
+        {
+          "ParameterKey": "NodeAutoScalingGroupDesiredCapacity",
+          "ParameterValue": "2"
+        },
+        {
+          "ParameterKey": "NodeVolumeSize",
+          "ParameterValue": "20"
+        },
+        {
+          "ParameterKey": "NodeGroupName",
+          "ParameterValue": "eks-udacity-nodes"
+        }
+    ]
