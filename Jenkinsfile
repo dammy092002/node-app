@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/javahometech/node-app'
+        git 'https://github.com/dammy092002/node-app'
   }
 }
     stage('DockerLint') {
@@ -23,7 +23,7 @@ pipeline {
         }
       }
     }
-    stage('Deploy Image') {
+    stage('Deploy Image to Registry') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
@@ -34,8 +34,10 @@ pipeline {
     }
     stage('Deploy to k8s') {
       steps{
+        sh "chmod +x changeBuild.sh"
+        sh "./changeBuild.sh $BUILD_NUMBER"
 		sshagent(['k8s-cluster']) {
-			sh "scp -o StrictHostKeyChecking=no services.yml pods.yml ubuntu@54.191.41.126:/home/ubuntu/"
+			sh "scp -o StrictHostKeyChecking=no services.yml node-app-pod.yml ubuntu@54.191.41.126:/home/ubuntu/"
 			script{
 				try{
 					sh "ssh ubuntu@54.191.41.126 kubectl apply -f ."
